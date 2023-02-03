@@ -14,7 +14,7 @@ public sealed class clsGame<TI>
     }
 
     public TI id { get; set; }
-    public time started { get; set; }
+    public Datatime started { get; set; }
     public int whites { get; set; }
     public int blacks { get; set; }
     public bool turn { get; set; }

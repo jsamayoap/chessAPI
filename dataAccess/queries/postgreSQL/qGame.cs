@@ -22,7 +22,7 @@ public sealed class qGame : IQGame
     
     private const string _update = @"
     UPDATE public.game
-	SET email=@started, @whites, @blacks, @turn, @winner
+	SET started=@started, whites = @whites, blacks = @blacks, turn = @turn, winner = @winner
 	WHERE id=@ID";
 
     public string SQLGetAll => _selectAll;
