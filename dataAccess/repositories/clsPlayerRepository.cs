@@ -44,9 +44,14 @@ public sealed class clsPlayerRepository<TI, TC> : clsDataAccess<clsPlayerEntityM
         throw new NotImplementedException();
     }
 
+    public Task<IEnumerable<clsPlayerEntityModel<TI,TC>>> getPlayer(TI id)
+    {
+
+    }
+
     public Task updatePlayer(clsPlayer<TI> updatedPlayer)
     {
-        throw new NotImplementedException();
+        
     }
 
     protected override DynamicParameters fieldsAsParams(clsPlayerEntityModel<TI, TC> entity)
