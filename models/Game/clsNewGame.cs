@@ -4,14 +4,14 @@ public sealed class clsNewGame
 {
     public clsNewGame()
     {
-        started = Datatime.Now();
+        started = DateTime.Now;
         whites = 0;
         blacks = 0;
         turn = false;
         winner = 0;
     }
 
-    public Datatime started { get; set; }
+    public DateTime started { get; set; }
     public int whites { get; set; }
     public int blacks { get; set; }
     public bool turn { get; set; }

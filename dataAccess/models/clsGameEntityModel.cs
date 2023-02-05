@@ -7,7 +7,7 @@ public sealed class clsGameEntityModel<TI, TC> : relationalEntity<TI, TC>
 {
     public clsGameEntityModel()
     {
-        started = Datatime.Now();
+        started = DateTime.Now;
         whites = 0;
         blacks = 0;
         turn = false;
@@ -15,7 +15,7 @@ public sealed class clsGameEntityModel<TI, TC> : relationalEntity<TI, TC>
     }
 
     public TI id { get; set; }
-    public Datatime started { get; set; }
+    public DateTime started { get; set; }
     public int whites { get; set; }
     public int blacks { get; set; }
     public bool turn { get; set; }

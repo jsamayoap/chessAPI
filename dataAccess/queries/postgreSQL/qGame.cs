@@ -9,12 +9,12 @@ public sealed class qGame : IQGame
 
     private const string _selectOne = @"
     SELECT id, started, whites, blacks, turn, winner 
-    FROM public.game"
+    FROM public.game
     WHERE id=@ID";
 
     private const string _add = @"
     INSERT INTO public.game(started, whites, blacks, turn, winner)
-	VALUES (@started, @whites, @blacks, @turn, @winner) RETURNING id";
+	VALUES (@Started, @Whites, @Blacks, @Turn, @Winner) RETURNING id";
 
     private const string _delete = @"
     DELETE FROM public.game 
@@ -22,7 +22,7 @@ public sealed class qGame : IQGame
     
     private const string _update = @"
     UPDATE public.game
-	SET started=@started, whites = @whites, blacks = @blacks, turn = @turn, winner = @winner
+	SET started=@Started, whites = @Whites, blacks = @Blacks, turn = @Turn, winner = @Winner
 	WHERE id=@ID";
 
     public string SQLGetAll => _selectAll;
