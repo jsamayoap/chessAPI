@@ -4,6 +4,7 @@ using chessAPI.dataAccess.models;
 using chessAPI.models.Game;
 using chessAPI.models.game;
 using Dapper;
+using System.Net;
 
 namespace chessAPI.dataAccess.repositores;
 
@@ -17,18 +18,20 @@ public sealed class clsGameRepository<TI, TC> : clsDataAccess<clsGameEntityModel
     {
     }
 
+    //POST
     public async Task<TI> addGame(clsNewGame game)
     {
        
         var p = new DynamicParameters();
-        p.Add(@Started, game.started);
-        p.Add(@Whites, game.whites);
-        p.Add(@Blacks, game.blacks);
-        p.Add(@Turn, game.turn);
-        p.Add(@Winner, game.winner);
+        p.Add("Started", game.started);
+        p.Add("Whites", game.whites);
+        p.Add("Blacks", game.blacks);
+        p.Add("Turn", game.turn);
+        p.Add("Winner", game.winner);
         return await add<TI>(p).ConfigureAwait(false);
     }
 
+     //POST VARIOS
     public async Task<IEnumerable<clsGameEntityModel<TI, TC>>> addGame(IEnumerable<clsNewGame> games)
     {
         var r = new List<clsGameEntityModel<TI, TC>>(games.Count());
@@ -46,13 +49,15 @@ public sealed class clsGameRepository<TI, TC> : clsDataAccess<clsGameEntityModel
         throw new NotImplementedException();
     }
 
+    //GET 
     public async Task<IEnumerable<clsGameEntityModel<TI,TC>>> getGame(TI id)
     {
         var p = new DynamicParameters();
         return await getALL(p).ConfigureAwait(false);
 
     }
-
+    
+    //PUT
     public Task updateGame(clsGame<TI> updatedGame)
     {
         throw new NotImplementedException();
@@ -64,11 +69,11 @@ public sealed class clsGameRepository<TI, TC> : clsDataAccess<clsGameEntityModel
         if (entity == null) throw new ArgumentNullException(nameof(entity));
         var p = new DynamicParameters();
         p.Add("ID", entity.id);
-        p.Add(@Started, entity.started);
-        p.Add(@Whites, entity.whites);
-        p.Add(@Blacks, entity.blacks);
-        p.Add(@Turn, entity.turn);
-        p.Add(@Winner,entity.winner);
+        p.Add("Started", entity.started);
+        p.Add("Whites", entity.whites);
+        p.Add("Blacks", entity.blacks);
+        p.Add("Turn", entity.turn);
+        p.Add("Winner",entity.winner);
         return p;
     }
 

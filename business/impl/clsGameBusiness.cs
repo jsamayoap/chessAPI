@@ -1,5 +1,6 @@
 using chessAPI.business.interfaces;
 using chessAPI.dataAccess.repositores;
+using chessAPI.models.game;
 using chessAPI.models.Game;
 
 namespace chessAPI.business.impl;
@@ -18,6 +19,8 @@ public sealed class clsGameBusiness<TI, TC> : IGameBusiness<TI>
     public async Task<clsGame<TI>> addGame(clsNewGame newGame)
     {
         var x = await gameRepository.addGame(newGame).ConfigureAwait(false);
-        return new clsGame<TI>(x, newGame.started, newGame.whites, newGame.blacks, newGame.turn, newGame.winner)
+        return new clsGame<TI>(x, newGame.started, newGame.whites, newGame.blacks, newGame.turn, newGame.winner);
     }
+
+    
 }

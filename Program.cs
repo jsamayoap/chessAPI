@@ -45,6 +45,15 @@ try
 
     app.MapPost("player", 
     [AllowAnonymous] async(IPlayerBusiness<int> bs, clsNewPlayer newPlayer) => Results.Ok(await bs.addPlayer(newPlayer)));
+    
+    //idea
+    /*app.MapPost("player", 
+    [AllowAnonymous] async(IPlayerBusiness<int> bs, clsNewPlayer newPlayer) => {
+        if()
+        {
+            Results.NotFound();
+        }
+    } Results.Ok(await bs.addPlayer(newPlayer)));*/
 
     app.Run();
 }

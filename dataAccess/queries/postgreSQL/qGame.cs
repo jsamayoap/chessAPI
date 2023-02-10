@@ -4,11 +4,13 @@ public sealed class qGame : IQGame
 {
 
     private const string _selectAll = @"
-    SELECT id, started, whites, blacks, turn, winner 
+    SELECT id, started, 
+       whites, blacks, turn, winner 
     FROM public.game";
 
     private const string _selectOne = @"
-    SELECT id, started, whites, blacks, turn, winner 
+    SELECT id, started, 
+       whites, blacks, turn, winner 
     FROM public.game
     WHERE id=@ID";
 

@@ -1,3 +1,4 @@
+using chessAPI.models.game;
 using chessAPI.models.Game;
 
 namespace chessAPI.business.interfaces;
